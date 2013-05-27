@@ -444,6 +444,10 @@
     KNS_LOG(@"Peripherals: %d", [peripherals count]);
     
     if ( [peripherals count] > 0 ) {
+		if ( [peripherals count] == 1 ) {
+			[self connectPeripheral:[peripherals objectAtIndex:0]];
+			return;
+		}
         if([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad){
             [self showModulePickeriPad];    //iPad
         } else {
